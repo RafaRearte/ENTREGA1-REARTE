@@ -1,0 +1,27 @@
+{% extends "app_rearte/index.html" %}
+{% load static %}
+{% block changingcontent %}
+
+<h2>Lista de Dinero</h2>
+<a class="card_custom" href="{% url 'CashDjangoForms' %}">Cargar Dinero</a>
+<hr></hr>
+<ul>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Moneda</th>
+            <th scope="col">Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for Money in cash %}
+            <tr>
+            <td>{{Money.type}}</td>
+            <td>{{Money.amount}}</td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</ul>
+
+{% endblock %}

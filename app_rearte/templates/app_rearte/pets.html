@@ -1,0 +1,33 @@
+{% extends "app_rearte/index.html" %}
+{% load static %}
+{% block changingcontent %}
+
+<h2>Lista de mascotas</h2>
+<a class="card_custom" href="{% url 'PetsDjangoForms' %}">Cargar mascota</a>
+<hr></hr>
+<ul>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Raza</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for House_pet in pets %}
+            <tr>
+            <td>{{House_pet.name}}</td>
+            <td>{{House_pet.age}}</td>
+            <td>{{House_pet.birth_date}}</td>
+            <td>{{House_pet.animal}}</td>
+            <td>{{House_pet.breed}}</td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</ul>
+
+{% endblock %}

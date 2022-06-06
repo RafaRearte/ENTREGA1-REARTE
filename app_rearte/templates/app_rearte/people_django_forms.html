@@ -1,0 +1,22 @@
+{% extends "app_rearte/index.html" %}
+{% load static %}
+{% block changingcontent %}
+
+<h3>Formulario para insersión de una nueva persona</h3>
+<hr></hr>
+{% if Person_form.errors %}
+    <p style="color: red">Por favor revisar los datos, están mal</p>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {{ Person_form.as_table }}
+    </table>
+
+    <input type="submit" class="btn btn-primary" value="Cargar persona" />
+
+</form>
+
+{% endblock %}

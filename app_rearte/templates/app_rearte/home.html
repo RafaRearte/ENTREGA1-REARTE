@@ -1,0 +1,69 @@
+{% extends "app_rearte/index.html" %}
+{% load static %}
+{% block changingcontent %}
+
+<form action="/app_rearte/search" method="GET">
+    <div>
+        <h2>Busqueda de vehiculos</h2> 
+        <input type="text" name="text_search" id="car_brand" placeholder="Busqueda por Marca">
+        <input type="submit" value="Buscar por Marca">
+    </div>
+    <div>
+        <input type="number" name="year_search" id="car_year" placeholder="Busqueda por año">
+        <input type="submit" value="Buscar por año">
+    </div>
+    <div>
+        <h2>Busqueda de Personas</h2> 
+        <input type="text" name="name_search" id="person_name" placeholder="Busqueda por Nombre">
+        <input type="submit" value="Buscar por Nombre">
+    </div>
+
+</form>
+{% if cars %}
+    <h2>Vehiculos</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Año</th>
+                <th scope="col">Patente</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for Car in cars %}
+                <tr>
+                <td>{{Car.brand}}</td>
+                <td>{{Car.model}}</td>
+                <td>{{Car.year}}</td>
+                <td>{{Car.license_plate}}</td>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+{% endif %}
+
+{% if people %}
+    <h2>Personas</h2>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Ocupacion</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for Person in people %}
+            <tr>
+            <td>{{Person.name}}</td>
+            <td>{{Person.age}}</td>
+            <td>{{Person.birth_date}}</td>
+            <td>{{Person.occupation}}</td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+{% endif %}
+{% endblock %}

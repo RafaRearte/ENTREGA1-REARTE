@@ -1,0 +1,31 @@
+{% extends "app_rearte/index.html" %}
+{% load static %}
+{% block changingcontent %}
+
+<h2>Lista de Personas</h2>
+<a class="card_custom" href="{% url 'PeopleDjangoForms' %}">Cargar persona</a>
+<hr></hr>
+<ul>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Ocupacion</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for Person in people %}
+            <tr>
+            <td>{{Person.name}}</td>
+            <td>{{Person.age}}</td>
+            <td>{{Person.birth_date}}</td>
+            <td>{{Person.occupation}}</td>
+          </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+</ul>
+
+{% endblock %}

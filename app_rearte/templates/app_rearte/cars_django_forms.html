@@ -1,0 +1,22 @@
+{% extends "app_rearte/index.html" %}
+{% load static %}
+{% block changingcontent %}
+
+<h3>Formulario para insersión de un nuevo vehiculo</h3>
+<hr></hr>
+{% if Car_form.errors %}
+    <p style="color: red">Por favor revisar los datos, están mal</p>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+        {{ Car_form.as_table }}
+    </table>
+
+    <input type="submit" class="btn btn-primary" value="Cargar vehiculo" />
+
+</form>
+
+{% endblock %}
